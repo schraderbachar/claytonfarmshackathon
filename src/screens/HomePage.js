@@ -6,8 +6,6 @@ import image2 from "images/image2.jpg"
 import image3 from "images/image3.jpg"
 import image4 from "images/image4.webp"
 
-import { FaMousePointer, FaFacebook, FaTwitter } from 'react-icons/fa';
-
 import "styles/homepage.css"
 
 export default function HomePage() {
@@ -51,27 +49,6 @@ export default function HomePage() {
                     <ProduceCard />
                 </div>
             </div>
-            <div className='mt-5'>
-                <h1>How it Works</h1>
-                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-                    <div style={{backgroundColor:"grey", height:"30vh", width:"25vw", display:"flex",flexDirection:"column",  justifyContent:"center", alignItems:"center"}}>
-                        <FaMousePointer size={60} />
-                        <p className="mt-4">Choose your items</p>
-                    </div>
-                    <div style={{backgroundColor:"grey", height:"30vh", width:"25vw", display:"flex",flexDirection:"column",  justifyContent:"center", alignItems:"center"}}>
-                        <FaMousePointer size={60} />
-                        <p className="mt-4">Decide the frequency</p>
-                    </div>
-                    <div style={{backgroundColor:"grey", height:"30vh", width:"25vw", display:"flex",flexDirection:"column",  justifyContent:"center", alignItems:"center"}}>
-                        <FaMousePointer size={60} />
-                        <p className="mt-4">Sit back, relax and receive your greens</p>
-                    </div>
-                    <div style={{backgroundColor:"grey", height:"30vh", width:"25vw", display:"flex",flexDirection:"column",  justifyContent:"center", alignItems:"center"}}>
-                        <FaMousePointer size={60} />
-                        <p className="mt-4">Reuse the packaging to save the planet</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
   )
@@ -82,8 +59,6 @@ function ProduceCard() {
   return (
     <div>
         <div className="" style={{backgroundImage: `url(${image4})`, backgroundSize:"cover", backgroundPosition:"center", height:"20vh", width:"20vh"}} />
-        {/* <p className='text-center mb-0'>4 servings included</p>
-        <p className='text-center mb-0'>a serving is 4 cups</p> */}
         <p className='text-center mb-0'>Name</p>
         <p className='text-center mb-0'>$8.50 USD</p>
     </div>

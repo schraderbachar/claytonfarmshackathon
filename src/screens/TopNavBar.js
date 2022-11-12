@@ -1,31 +1,20 @@
 import React from 'react'
-import {Nav, Navbar, Container, Form, Button, Image } from 'react-bootstrap'
+import {Nav, Navbar, Container, Image, NavDropdown } from 'react-bootstrap'
 
-import { FaSearch, FaSignOutAlt } from 'react-icons/fa';
+import { CgProfile } from 'react-icons/cg';
+import { HiOutlineShoppingBag } from 'react-icons/hi';
 
-import { useAuth } from '../AuthContext.js';
+import logo from "images/logo.jpg"
 
-// import logo from "images/logo512.png";
+import "styles/topnavbar.css"
 
-export default function TopNavBar({searchValue, setSearchValue}) {
-    const { signOut, currentUser } = useAuth();
-
-    function onSignOut(){
-        signOut()
-        .then(res=> {
-            if(res.ok){
-                alert("You're signed out!")
-            }
-        })
-    }
-
+export default function TopNavBar() {
     return (
         <div>
             <Navbar expand="lg" style={{minHeight:"10vh", backgroundColor:"#f6f6f4"}}>
-                <Container className="px-4 py-4" fluid>
+                <Container className="px-5 py-3" fluid>
                     <Navbar.Brand href="/">
-                        Claytonfarmhack
-                        {/* <Image src={logo} width={"100vh"} height={"100vh"}/> */}
+                        <Image src={logo} width={"80vh"} height={"50vh"}/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -38,19 +27,16 @@ export default function TopNavBar({searchValue, setSearchValue}) {
                             <Nav.Link className="" href="/">Choose Your Greens</Nav.Link>
                             <Nav.Link className="" href="/">About</Nav.Link>
                         </Nav>
-                        <Form className="d-flex flex-row">
-                            <Form.Control
-                                value={searchValue}
-                                onChange={(e) => setSearchValue(e.target.value)}
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                                style={{border:"none", borderBottom:"1px solid black", borderRadius:"0", background:"none"}}
-                            />
-                            <Button variant=""><FaSearch /></Button>
-                            {currentUser && <Button variant="danger" onClick={() => onSignOut()}><FaSignOutAlt className='mb-1' /></Button>}
-                        </Form>
+                        <div id="dropdownBottomLeft">
+                            <div style={{display:"flex", flexDirection:"row", gap:"10px"}}>
+                                <NavDropdown title={<CgProfile size={28}/>}>
+                                    <NavDropdown.Item className="DMSansNormal4001422 dropdownItem" href="/account">Account</NavDropdown.Item>
+                                    <NavDropdown.Item className="DMSansNormal4001422 dropdownItem" href="/ordersandsubscriptions">Subscriptions & Orders</NavDropdown.Item>
+                                    <NavDropdown.Item className="DMSansNormal4001422 dropdownItem" href="#" style={{color:"#DA1E28"}}>Log out</NavDropdown.Item>
+                                </NavDropdown>
+                                <HiOutlineShoppingBag size={28}/>
+                            </div>
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

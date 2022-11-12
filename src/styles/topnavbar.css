@@ -1,0 +1,23 @@
+/* Top nav bar  */
+#dropdownBottomLeft .dropdown-toggle::after{
+    display: none;
+}
+
+#dropdownBottomLeft .dropdown-menu[data-bs-popper]{
+    top: 120%;
+    right: 0%;
+    left: auto;
+    margin-top: 0;
+    border: 1.5px solid black;
+    border-radius: 0;
+}
+
+.dropdownItem {
+    padding: 15px 60px;
+}
+
+@media only screen and (max-width: 990px) {
+    #dropdownBottomLeft .dropdown-menu[data-bs-popper]{
+        right: auto;
+    }
+}
