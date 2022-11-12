@@ -7,7 +7,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  height: 100%;
+}
+
+/* body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  flex-shrink: 1;
+  color: red;
+} */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.scrolling-wrapper::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+
+
+/* ---------------ABOUT PAGE------------------ */
+

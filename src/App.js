@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+// import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+import { AuthProvider } from './AuthContext';
+
+// import LoginPage from 'screens/LoginPage';
+import HomePage from './screens/HomePage';
+// import BlogPage from './screens/BlogPage';
+// import AboutPage from './screens/AboutPage';
+import TopNavBar from './screens/TopNavBar';
+import Footer from './screens/Footer';
+
+import "./index.css"
+
+
+export default function App() {
+  const [searchValue, setSearchValue] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <AuthProvider>
+        <TopNavBar />
+        <Routes>
+          <Route exact path ='/' element={<HomePage/>} />
+        </Routes>
+        <Footer/>
+      </AuthProvider>
+    </BrowserRouter>
+  )
 }
-
-export default App;
